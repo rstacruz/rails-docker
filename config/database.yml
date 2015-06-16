@@ -1,0 +1,17 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['APPNAME'] %>_development
+  pool: 5
+  username: <%= ENV['DB_PORT_5432_TCP_ADDR'] ? 'postgres' : `whoami`.strip %>
+  password:
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  port: <%= ENV['DB_PORT_5432_TCP_PORT'] || 5432 %>
+
+test:
+  <<: *default
+  database: <%= ENV['APPNAME'] %>_test
+
+production:
+  <<: *default
+  database: <%= ENV['APPNAME'] %>_production

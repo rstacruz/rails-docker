@@ -60,6 +60,13 @@ Here's how to get Rails working on Docker on OSX.
   docker-compose run web rspec
   ```
 
+## When you're done
+
+```
+docker-compose stop    # turn off docker containers
+docker-machine stop    # turn off docker VM
+```
+
 ## How it works
 
 You get a development environment in Docker for your Rails app.
@@ -69,3 +76,14 @@ You get a development environment in Docker for your Rails app.
  * Your local directory is synced to the Docker container. That means you can edit files locally as if the server is running on your computer too.
 
  * database.yml is shared between your your local and in the Docker container.
+
+## Troubleshooting
+
+> Couldn't connect to Docker daemon - you might need to run `boot2docker up`.
+
+You'll need to turn on `docker-machine`. If it's already started, you'll also need to enable it in your shell. (You're not using boot2docker, so don't follow what it says.)
+
+```
+docker-machine start
+docker-machine env | source
+```

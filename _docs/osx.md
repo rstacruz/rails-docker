@@ -39,8 +39,8 @@ Toolchain setup
 * Set up your shell. This will make `docker` commands connect to the `dev` machine automatically. Consider putting this in your shell's profile.
 
   ```sh
-  docker-machine env dev | source       # bash/zsh
-  eval (docker-machine env dev)         # fish
+  docker-machine env | source       # bash/zsh
+  eval (docker-machine env)         # fish
   ```
 
 That's it. Start using docker!

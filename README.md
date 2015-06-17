@@ -14,6 +14,7 @@ Here's how to get Rails working on Docker on OSX.
 ## Files
 
 - [Dockerfile](Dockerfile)
+- [.dockerignore](.dockerignore)
 - [config/database.yml](config/database.yml)
 - [docker-compose.yml](docker-compose.yml)
 
@@ -50,14 +51,21 @@ Here's how to get Rails working on Docker on OSX.
   $ open http://192.168.99.100:3000
   ```
 
-## Running stuff
+## Life cycle
 
-* Use `docker-compose run`.
+* Use `docker-compose run` to run stuff.
 
   ```
   docker-compose run web rails console
   docker-compose run web bash
+  docker-compose run web rake routes
   docker-compose run web rspec
+  ```
+
+* If you added gems, simply use `bundle` inside the container.
+
+  ```
+  docker-compose run web bundle
   ```
 
 ## When you're done

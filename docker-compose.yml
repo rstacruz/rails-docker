@@ -6,7 +6,8 @@ db:
 web:
   build: .
   environment:
-    - APPNAME=lol
+    - DATABASE_URL=postgres://postgres@db:5432/myapp
+    - RAILS_ENV=production
   ports:
     - "3000:3000"
   links:

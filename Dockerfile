@@ -21,7 +21,7 @@ RUN bundle install
 
 ADD . $APP_HOME
 
-RUN if [ $RAILS_ENV = "production" ]; then bundle exec rake assets:precompile --trace; fi
+RUN bundle exec rake assets:precompile --trace
 
 EXPOSE 3000
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]

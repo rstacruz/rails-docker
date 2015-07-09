@@ -17,11 +17,9 @@ WORKDIR $APP_HOME
 
 ADD Gemfile $APP_HOME/Gemfile
 ADD Gemfile.lock $APP_HOME/Gemfile.lock
-RUN bundle install
+RUN bundle install -j3
 
 ADD . $APP_HOME
-
-RUN bundle exec rake assets:precompile --trace
 
 EXPOSE 3000
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]
